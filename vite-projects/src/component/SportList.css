@@ -1,0 +1,152 @@
+/* Full-page background with a sports vibe */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background for the whole page */
+    background-image: url(Sports.jpg); /* Example background image */
+    background-size: cover; /* Cover the entire screen */
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0033cc, #0099ff); /* Blue gradient for a sporty feel */
+    margin: 0;
+    font-family: 'Anton', sans-serif; /* Bold and sporty font */
+  }
+  
+  /* Card style for the form */
+  .form-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+  }
+  
+  /* Add a sports-themed decorative bar */
+  .form-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    background: linear-gradient(90deg, #ff4500, #ffd700); /* Gradient for team colors */
+    border-radius: 16px 16px 0 0;
+  }
+  
+  /* Form heading */
+  .form-card h1 {
+    font-size: 28px;
+    color: #0033cc;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .form-card p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 25px;
+  }
+  
+  /* Form fields */
+  .form-field {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #0033cc;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333333;
+    background: #f1f1f1;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  .form-field input:focus,
+  .form-field select:focus {
+    border-color: #ff4500;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.4);
+    transform: scale(1.02);
+  }
+  
+  /* Submit button with a sporty look */
+  button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #ff4500, #ffd700); /* Sporty gradient colors */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    letter-spacing: 1px;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #ffd700, #ff4500);
+    transform: scale(1.05);
+  }
+  
+  /* Add a sports icon */
+  button::before {
+    content: "🏀";
+    margin-right: 8px;
+  }
+  
+  /* Smooth fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .form-card {
+      padding: 20px;
+    }
+  
+    .form-card h1 {
+      font-size: 22px;
+    }
+  
+    .form-card p {
+      font-size: 12px;
+    }
+  }
+  
