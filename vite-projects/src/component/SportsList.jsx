@@ -106,7 +106,7 @@ const SportsList = () => {
                   type="number"
                   id="height"
                   name="height"
-                  placeholder="Enter your height"
+                  placeholder="Enter your height in cm"
                   value={formData.height}
                   onChange={handleChange}
                   required
@@ -121,7 +121,7 @@ const SportsList = () => {
                   type="number"
                   id="weight"
                   name="weight"
-                  placeholder="Enter your weight"
+                  placeholder="Enter your weight in kg"
                   value={formData.weight}
                   onChange={handleChange}
                   required
