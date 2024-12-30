@@ -84,6 +84,12 @@ const SportsList = () => {
           )}
         </div>
         {selectedTeam && <p>You have selected: {selectedTeam}</p>}
+        {formData.name && <p>FullName: {formData.name} </p>}
+        {formData.age && <p>Age: {formData.age} yrs Old</p>}
+        {formData.email && <p>Email: {formData.email}</p>}
+        {formData.height && <p>Your height: {formData.height} cm</p>}
+        {formData.weight && <p>Your weight: {formData.weight} kg</p>}
+        {formData.sports && <p> Sports:{formData.sports} </p>}
       </div>
     );
   };
