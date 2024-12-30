@@ -83,7 +83,8 @@ const SportsList = () => {
             <p>No teams available for this sport. Please select a different sport or check back later.</p>
           )}
         </div>
-        {selectedTeam && <p>You have selected: {selectedTeam}</p>}
+        {selectedTeam && <p>You have selected: {selectedTeam}</p>
+        }
       </div>
     );
   };
