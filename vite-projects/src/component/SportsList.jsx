@@ -4,14 +4,16 @@ import "./SportList.css";
 const SportsList = () => {
   const [formData, setFormData] = useState({
     name: "",
-    /*age: "",
+    age: "",
     email: "",
-    /*height: "",
-    weight: "",*/
+    height: "",
+    weight: "",
     sports: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showSportForm, setShowSportForm] = useState(false);
+  const [selectedTeam,setSelectedTeam] = useState ("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,9 +32,7 @@ const SportsList = () => {
     }
 
     console.log("Form Data Submitted:", formData);
-
-
-    setIsSubmitted(true);
+    setIsSubmitted(true); 
   };
 
   const HomePage = () => (
@@ -42,49 +42,60 @@ const SportsList = () => {
       <p>Your selected sport: {formData.sports || "None selected"}</p>
       {formData.height && <p>Your height: {formData.height} cm</p>}
       {formData.weight && <p>Your weight: {formData.weight} kg</p>}
-      <button onClick={() => alert(`Your selected sport: ${formData.sports}`)}>
-        Continue
-      </button>
+      <button onClick={() => setShowSportForm(true)}>Continue</button>
     </div>
   );
-  
+
   const SportForm = () => {
     const teams = {
       Basketball: ["Team A", "Team B", "Team C"],
-      Badminton: ["Shuttle Kings", "Net Smashers"],
-      Volleyball: ["Spike Masters", "Volley Stars"],
-      Tennis: ["Ace Squad", "Court Runners"],
-      Arnis: ["Stick Fighters", "Blade Warriors"],
+      Badminton: ["Shuttle Kings", "Net Smashers", "Ace Player", "Green Lucks"],
+      Volleyball: ["Spike Masters", "Volley Stars","Boss Tiger","King Dragon"],
+      Tennis: ["Ace Squad", "Court Runners","Speed Motion", "Gravity Snipper"],
+      Arnis: ["Stick Fighters", "Blade Warriors","Green Slasher", "Mist Striker "],
     };
-  
+
     const selectedTeams = teams[formData.sports] || [];
-  
+ 
+    const handleTeamClick =(team) => {
+      setSelectedTeam(team);
+      console.log(`You selected: ${team}`);
+    };
+
     return (
       <div className="sportForm">
         <h1>{formData.sports ? formData.sports : "Select a Sport"}</h1>
         <div className="box">
           <h2>Selection Team</h2>
           {selectedTeams.length > 0 ? (
-            <nav>
-              <ul>
-                {selectedTeams.map((team, index) => (
-                  <li key={index}>{team}</li>
-                ))}
-              </ul>
-            </nav>
+            <div className="team-buttons">
+              {selectedTeams.map((team, index) => (
+                <button 
+                  key={index} 
+                  onClick={() => handleTeamClick(team)} 
+                  className="team-button"
+                >
+                  {team}
+                </button>
+              ))}
+            </div>
           ) : (
             <p>No teams available for this sport. Please select a different sport or check back later.</p>
           )}
         </div>
+        {selectedTeam && <p>You have selected: {selectedTeam}</p>}
       </div>
     );
   };
-  
 
   return (
     <div className="form-container">
       {isSubmitted ? (
-        <HomePage />
+        showSportForm ? (
+          <SportForm /> // Show SportForm when showSportForm is true
+        ) : (
+          <HomePage /> // Show HomePage if not clicked yet
+        )
       ) : (
         <div className="form-card">
           <h1>Sport Form for PUPBC</h1>
@@ -103,23 +114,6 @@ const SportsList = () => {
                   required
                 />
               </label>
-            </div>
-
-            <div className="form-field">
-              {/*
-              <label htmlFor="age">
-                Age:
-                <input
-                  type="number"
-                  id="age"
-                  name="age"
-                  placeholder="Enter your age"
-                  value={formData.age}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              */}
             </div>
 
             <div className="form-field">

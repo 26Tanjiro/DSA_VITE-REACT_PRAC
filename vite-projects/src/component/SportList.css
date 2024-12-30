@@ -135,7 +135,7 @@ body {
   
   
   button::before {
-    content: "🏀";
+    content: "⭐";
     margin-right: 8px;
   }
   
